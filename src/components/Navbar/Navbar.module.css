@@ -1,0 +1,28 @@
+.nav {
+    grid-area: n;
+    background-color: plum;
+    padding: 20px;
+}
+
+.item {
+    color: gray;
+    text-decoration: darkgoldenrod;
+}
+
+.item .active {
+    color: green;
+}
+
+.friendsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.friend {
+    color: green;
+    background-color: blue;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    padding: 10px;
+}
