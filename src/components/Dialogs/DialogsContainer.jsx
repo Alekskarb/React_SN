@@ -1,24 +1,24 @@
 import React from 'react';
-import {addMessCreator, updateMessTextCreator} from "../../Redux/DialogReducer";
+import {addMessActionCreator, updateMessTextActionCreator} from "../../Redux/dialogReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
-let mapStateToProps =(state)=> {
+let mapStateToProps =(state) => {
     return {
-dialogsPage: state.dialogsPage
+        dialogsPage: state.dialogsPage,
+    }};
+
+let mapDispatchToProps =(dispatch) => {
+    return {addMess: ()=> { dispatch(addMessActionCreator())},
+        updateMessText: (event)=> { dispatch(updateMessTextActionCreator(event))
     }
-}
+    }}
 
-let mapDispatchToProps =(dispatch)=> {
-    return {
-        onAddMess: ()=>{
-            dispatch(addMessCreator())},
-            messChange: (mess)=>{
-            dispatch(updateMessTextCreator(mess))}
 
-    }
-}
-
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
-export default DialogsContainer;
+export default compose(
+        connect(mapStateToProps, mapDispatchToProps),
+        withAuthRedirect,
+    )
+    (Dialogs)

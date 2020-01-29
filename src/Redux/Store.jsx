@@ -1,6 +1,6 @@
-import profileReducer from "./ProfileReducer";
-import dialogReducer from "./DialogReducer";
-import sidebarReducer from "./SidebarReducer";
+import dialogReducer from "./dialogReducer";
+import profileReducer from "./profileReducer";
+import sidebarReducer from "./sidebarReducer";
 
 let store = {
     _state: {
@@ -22,7 +22,7 @@ let store = {
                 {id: 2, message: 'Im Ok'},
                 {id: 3, message: 'Yo'},
                 {id: 4, message: 'OK'}],
-            newMessText: ''
+            newMessText: 'All right'
         },
         sideBar: {
             speakers: [
@@ -37,22 +37,24 @@ let store = {
                 {id: 4, speaks: 'Real guy'}]
         }
     },
-    _callSubscriber() {
-        console.log('state changed')
-    },
     getState() {
         return this._state
+    },
+    _callSubscriber() {
+        console.log('State changed')
     },
     subscribe(observer) {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        this._state.profilesPage = profileReducer (this._state.profilesPage, action)
-        this._state.dialogsPage = dialogReducer (this._state.dialogsPage, action)
-        this._state.sideBar = sidebarReducer (this._state.sideBar, action)
+        this._state.profilesPage = profileReducer(this._state.profilesPage, action)
+        this._state.dialogsPage = dialogReducer(this._state.dialogsPage, action)
+        this._state.sideBar = sidebarReducer(this._state.sideBar, action);
         this._callSubscriber(this._state)
-        }
-    }
+    },
+
+};
+
+window.store = store;
 
 export default store;
-window.store = store;

@@ -1,5 +1,5 @@
-const ADD_MESS = 'ADD_MESS';
-const UP_DATE_MESS_TEXT = 'UP_DATE_MESS_TEXT';
+let ADD_MESS = 'ADD-MESS';
+let UPDATE_MESS_TEXT = 'UPDATE-MESS-TEXT';
 
 let initialState = {
     myDia: [
@@ -12,26 +12,24 @@ let initialState = {
         {id: 2, message: 'Im Ok'},
         {id: 3, message: 'Yo'},
         {id: 4, message: 'OK'}],
-    newMessText: ''
+    newMessText: 'All right'
 }
 
-
-
-const dialogReducer = (state=initialState, action) => {
-
+const dialogReducer = (state=initialState, action)=> {
     switch (action.type) {
         case ADD_MESS:
-            let newMessText = state.newMessText;
-            return {...state, newMessText: '', myMess: [...state.myMess, {id: 5, message: newMessText}]}
-        case UP_DATE_MESS_TEXT:
+            let mess =state.newMessText;
             return {
-                ...state, newMessText: action.newMess};
-        default:
-            return state;
+                ...state, newMessText: '', myMess: [...state.myMess, {id: 5, message: mess}], };
+        case UPDATE_MESS_TEXT:
+            return {
+            ...state, newMessText: action.messPost};
+            default:  return state;
     }
 }
 
-export const addMessCreator = () => ({type: ADD_MESS})
-export const updateMessTextCreator = (body) => ({type: UP_DATE_MESS_TEXT, newMess: body})
+export const addMessActionCreator =()=> ({type: ADD_MESS});
+export const updateMessTextActionCreator =(mess)=> ({type: UPDATE_MESS_TEXT, messPost: mess});
+
 
 export default dialogReducer;

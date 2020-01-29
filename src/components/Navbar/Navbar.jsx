@@ -4,14 +4,18 @@ import {NavLink} from "react-router-dom";
 import Sidebar from "./Sidebar";
 
 const Navbar = (props) => {
-    return (
-        <>
+
+    return   (<>
+
             <div className={s.nav}>
                 <div className={s.item}>
                     <NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
                 </div>
                 <div className={`${s.item} ${s.active}`}>
                     <NavLink to="/dialogs">Messages</NavLink>
+                </div>
+                <div className={`${s.item} ${s.active}`}>
+                    <NavLink to="/users">USERS</NavLink>
                 </div>
                 <div className={s.item}>
                     <a>Music</a>
@@ -22,11 +26,10 @@ const Navbar = (props) => {
                 <hr/>
                 <div>
                     <h2>Friends</h2>
-                    {/*<Sidebar nik={props.man.speakers}/>*/}
+                    {/*<Sidebar nik={props.state.speakers}/>*/}
                 </div>
             </div>
-
-        </>
-    );
+    </>)
 };
+
 export default Navbar;

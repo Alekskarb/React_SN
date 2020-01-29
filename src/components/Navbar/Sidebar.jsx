@@ -5,7 +5,7 @@ import Friends from "./Friends";
 const Sidebar = (props) => {
 
     let friends = props.nik.map((f) => {
-        return <Friends nik={f.nik}/>
+        return <Friends key={f.id} nik={f.nik}/>
     });
 
     return (

@@ -1,67 +1,57 @@
 import React from 'react';
 import styles from './users.module.css'
+import userPict from '../../assets/images/images.png'
+import {NavLink} from "react-router-dom";
 
-const Users = (props) => {
+let Users = (props) => {
 
-    if (props.users.length === 0) {
-
-    props.setUsers(
-        [{
-            id: 1,
-            myUrl: 'https://yt3.ggpht.com/a/AGF-l7_bxwzkHGLOTdWlmToCBYJ7llyd7vtG6_efEA=s48-c-k-c0xffffffff-no-rj-mo',
-            follow: false,
-            fullName: 'Sanek',
-            location: {city: 'Minsk', country: 'Belarus'}
-        },
-            {
-                id: 2,
-                myUrl: 'https://yt3.ggpht.com/a/AGF-l7_bxwzkHGLOTdWlmToCBYJ7llyd7vtG6_efEA=s48-c-k-c0xffffffff-no-rj-mo',
-                follow: true,
-                fullName: 'Pawel',
-                location: {city: 'Brest', country: 'Belarus'}
-            },
-            {
-                id: 3,
-                myUrl: 'https://yt3.ggpht.com/a/AGF-l7_bxwzkHGLOTdWlmToCBYJ7llyd7vtG6_efEA=s48-c-k-c0xffffffff-no-rj-mo',
-                follow: false,
-                fullName: 'Jhon',
-                location: {city: 'Grodno', country: 'Belarus'}
-            },
-            {
-                id: 4,
-                myUrl: 'https://yt3.ggpht.com/a/AGF-l7_bxwzkHGLOTdWlmToCBYJ7llyd7vtG6_efEA=s48-c-k-c0xffffffff-no-rj-mo',
-                follow: true,
-                fullName: 'Ann',
-                location: {city: 'Vitebsk', country: 'Belarus'}
-            },
-        ]
-    )}
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
+    }
 
     return <div>
-        {props.users.map(u => <div key={u.id}>
+        <div>
+            {pages.map(page => {
+                return <span className={props.currentPage === page && styles.boldPage}
+                             onClick={() => {
+                                 props.onPageChanged(page)
+                             }}>{page}</span>
+            })}
+        </div>
+        {
+            props.users.map(u => <div key={u.id}>
             <span>
-                <div>
-                    <img src={u.myUrl} className={styles.userFoto}/>
+                <div> <NavLink to={'/profile/' + u.id}>
+                    <img src={u.photos.small != null ? u.photos.small : userPict} className={styles.userFoto}/>
+                </NavLink>
                 </div>
                 <div>
-{u.follow
-    ? <button onClick={() => props.unfollow(u.id)}>unfollow</button>
-    : <button onClick={() => props.follow(u.id)}>follow</button>}
+{u.followed
+    ? <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
+                props.unfollow(u.id)
+                }}>unfollow
+    </button>
+
+    : <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
+                props.follow(u.id)
+                }}>follow</button>}
             </div>
             </span>
-            <span>
                 <span>
-    <div>{u.fullName}</div>
+                <span>
+    <div>{u.name}</div>
     <div>{u.status}</div>
 </span>
             <span>
-                  <div>{u.location.country}</div>
-                    <div>{u.location.city}</div>
+                  <div>{'u.location.country'}</div>
+                    <div>{'u.location.city'}</div>
                 </span>
                 </span>
-        </div>)
+            </div>)
         }
     </div>
 }
-export default Users
 
+export default Users;
