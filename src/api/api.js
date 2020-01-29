@@ -36,6 +36,7 @@ export const profileAPI = {
         return instance.put('profile/status', {status: status})
     }
 }
+
 export const authAPI = {
     authorize() {
         return instance.get('auth/me')
