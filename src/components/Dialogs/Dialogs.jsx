@@ -14,7 +14,7 @@ const Dialogs = (props) => {
 
     let onAddMess = () => {
         props.addMess();
-    }
+    };
 
     let onMessChange = (event) => {
         let body = event.target.value;

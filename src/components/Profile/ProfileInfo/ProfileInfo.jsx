@@ -2,7 +2,6 @@ import React from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/preloader";
 import ProfileStatus from './ProfileStatus'
-import Profile from "../Profile";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -23,6 +22,6 @@ const ProfileInfo = (props) => {
         </div>
 
     )
-}
+};
 
 export default ProfileInfo;

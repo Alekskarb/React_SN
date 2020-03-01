@@ -13,7 +13,7 @@ let initialState = {
     newPostText: 'samuray',
     profile: null,
     status: ''
-}
+};
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -44,7 +44,7 @@ const profileReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 
 export const addPostActionCreator = () => ({type: ADD_POST});
 export const setStatus = (status) => ({type: SET_STATUS, status});
@@ -54,19 +54,19 @@ export const getUserProfile = (userId) => (dispatch) => {
     usersAPI.getProfile(userId).then(response => {
         dispatch(setUserProfile(response.data));
     })
-}
+};
 
 export const getUserStatus = (userId) => (dispatch) => {
     profileAPI.getStatus(userId).then(response => {
         dispatch(setStatus(response.data));
     })
-}
+};
 export const updateUserStatus = (status) => (dispatch) => {
     profileAPI.updateStatus(status).then(response => {
         if (response.data.resultCode === 0) {
             dispatch(setStatus(status));
         }
     })
-}
+};
 
 export default profileReducer;
