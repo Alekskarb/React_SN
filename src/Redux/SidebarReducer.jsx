@@ -10,9 +10,9 @@ let initialState= {
         {id: 2, speaks: 'Good Idea'},
         {id: 3, speaks: 'some Bitch'},
         {id: 4, speaks: 'Real guy'}]
-}
+};
 
-const sidebarReducer = (state=initialState, action)=> {
-    return state;  }
+const sidebarReducer = (state=initialState)=> {
+    return state;  };
 
     export default sidebarReducer;

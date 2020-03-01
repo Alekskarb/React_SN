@@ -47,8 +47,8 @@ let store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        this._state.profilesPage = profileReducer(this._state.profilesPage, action)
-        this._state.dialogsPage = dialogReducer(this._state.dialogsPage, action)
+        this._state.profilesPage = profileReducer(this._state.profilesPage, action);
+        this._state.dialogsPage = dialogReducer(this._state.dialogsPage, action);
         this._state.sideBar = sidebarReducer(this._state.sideBar, action);
         this._callSubscriber(this._state)
     },
