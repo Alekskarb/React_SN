@@ -12,7 +12,7 @@ const ProfileInfo = (props) => {
         <div>
             <div className={s.content}>
                 <img
-                    src='https://cdn.pixabay.com/photo/2015/01/08/19/10/jetty-593401_960_720.jpg'/>
+                    src='https://cdn.pixabay.com/photo/2015/01/08/19/10/jetty-593401_960_720.jpg' alt={'no_image'}/>
             </div>
             <div className={s.descriptionBlock}>
                 <img src={props.profile.photos.large} alt=""/>

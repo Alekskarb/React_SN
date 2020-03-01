@@ -52,8 +52,6 @@ let withUserRedirect = withAuthRedirect(UsersContainer);
 export default compose(
     connect(mapStateToProps, {
         follow, unfollow, setCurrentPage, setFollowingProgress, getUsers}),
-    withAuthRedirect,
-)
-(UsersContainer)
+    withAuthRedirect,)(UsersContainer)
 
 
