@@ -12,33 +12,33 @@ export const usersAPI = {
             .then(response => response.data);
     },
     unfollow(userId) {
-        return instance.delete(`follow/${userId}`, )
+        return instance.delete(`follow/${userId}`,)
             .then(response => response.data)
     },
     follow(userId) {
-        return instance.post(`follow/${userId}`, )
+        return instance.post(`follow/${userId}`,)
             .then(response => response.data)
     },
-    getProfile (userId) {
+    getProfile(userId) {
         console.warn('Obsolete method. Use profileAPI')
         return profileAPI.getProfile(userId)
     },
 };
 
 export const profileAPI = {
-    getProfile (userId) {
+    getProfile(userId) {
         return instance.get(`profile/${userId}`)
     },
-    getStatus (userId) {
+    getStatus(userId) {
         return instance.get(`profile/status/${userId}`)
     },
     updateStatus(status) {
         return instance.put('profile/status', {status: status})
     }
-}
+};
 
 export const authAPI = {
     authorize() {
         return instance.get('auth/me')
     },
-}
+};

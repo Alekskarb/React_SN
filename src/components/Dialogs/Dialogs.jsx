@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-import {addMessActionCreator, updateMessTextActionCreator} from "../../Redux/dialogReducer";
 import {Redirect} from "react-router-dom";
 
 const Dialogs = (props) => {
@@ -17,12 +16,12 @@ const Dialogs = (props) => {
         props.addMess();
     }
 
-   let onMessChange = (event) => {
+    let onMessChange = (event) => {
         let body = event.target.value;
         props.updateMessText(body);
     };
 
-if (!props.isAuth) return <Redirect to={'/login'}/>;
+    if (!props.isAuth) return <Redirect to={'/login'}/>;
 
     return (
         <div className={s.dialogs}>
@@ -41,6 +40,6 @@ if (!props.isAuth) return <Redirect to={'/login'}/>;
             </div>
         </div>
     )
-}
+};
 
 export default Dialogs;

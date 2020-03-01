@@ -9,13 +9,13 @@ const MyPosts = (props) => {
 
     let addPost = () => {
         props.onAddPost();
-    }
+    };
 
-    let onPostChange= (e)=> {
+    let onPostChange = (e) => {
         let text = e.target.value;
         props.updatePostText(text);
         // let action = {type: 'UPDATE-POST-TEXT', newText: text}
-    }
+    };
 
     return <div className={s.postsBlock}>
         <h3> My posts </h3>
@@ -29,6 +29,6 @@ const MyPosts = (props) => {
             {postsElements}
         </div>
     </div>
-}
+};
 
 export default MyPosts;

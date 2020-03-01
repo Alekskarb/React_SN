@@ -5,18 +5,18 @@ import {getAuthorize} from "../../Redux/authReducer";
 
 class HeaderContainer extends React.Component {
 
-  componentDidMount() {
-this.props.getAuthorize();
-  }
+    componentDidMount() {
+        this.props.getAuthorize();
+    }
 
-  render() {
-    return <Header {...this.props}/>
-  }
+    render() {
+        return <Header {...this.props}/>
+    }
 }
 
-const mapStateToProps = (state)=> ({
+const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
     login: state.auth.login,
 });
 
-export default connect(mapStateToProps, {getAuthorize}) (HeaderContainer);
+export default connect(mapStateToProps, {getAuthorize})(HeaderContainer);
