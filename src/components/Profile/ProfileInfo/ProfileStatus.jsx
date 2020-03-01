@@ -7,20 +7,21 @@ class ProfileStatus extends React.Component {
         status: this.props.status
     }
 
-    activatedMode =()=> {
-        this.setState({ editMode: true });
+    activatedMode = () => {
+        this.setState({editMode: true});
     };
 
-    deactivatedMode =()=> {
-        this.setState({ editMode: false });
+    deactivatedMode = () => {
+        this.setState({editMode: false});
         this.props.updateUserStatus(this.state.status)
     };
-    onStatusChange =(e)=> {
-        this.setState({ status: e.currentTarget.value});
+    onStatusChange = (e) => {
+        this.setState({status: e.currentTarget.value});
     };
+
     componentDidUpdate(prevProps, prevState, snapshot) {
 
-        if (prevProps.status !== this.props.status ) {
+        if (prevProps.status !== this.props.status) {
             this.setState({status: this.props.status})
         }
         console.log('componentDidUpdate')
@@ -30,17 +31,17 @@ class ProfileStatus extends React.Component {
         return (
             <div>
                 {!this.state.editMode &&
-                    <div>
-                        <div onDoubleClick={this.activatedMode}> {this.props.status || ')))))'} </div>
-                    </div>
+                <div>
+                    <div onDoubleClick={this.activatedMode}> {this.props.status || ')))))'} </div>
+                </div>
                 }
                 {this.state.editMode &&
-                    <div>
-                        <input onBlur={this.deactivatedMode}
-                               value={this.state.status}
-                               onChange={this.onStatusChange}
-                        autoFocus={true}/>
-                    </div>
+                <div>
+                    <input onBlur={this.deactivatedMode}
+                           value={this.state.status}
+                           onChange={this.onStatusChange}
+                           autoFocus={true}/>
+                </div>
                 }
             </div>
         )

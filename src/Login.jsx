@@ -4,7 +4,7 @@ import {Field, reduxForm} from "redux-form";
 
 const LoginForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit }>
+        <form onSubmit={props.handleSubmit}>
             <div>
                 <Field placeholder={'LOGIN'} name={'login'} component={'input'}/>
             </div>
@@ -12,11 +12,11 @@ const LoginForm = (props) => {
                 <Field placeholder={'Password'} name={'password'} component={'input'}/>
             </div>
             <div>
-                <Field type={'checkbox'} name={'remember me'} component={'input'}/>
+                <Field type={'checkbox'} name={'rememberMe'} component={'input'}/>
                 remember me
             </div>
             <div>
-               <button> login </button>
+                <button> login </button>
             </div>
         </form>
     )
@@ -25,9 +25,9 @@ const LoginForm = (props) => {
 const ReduxLoginForm = reduxForm({form: 'login'})(LoginForm);
 
 const Login = (props) => {
-    const onSubmit = (formData)=> {
+    const onSubmit = (formData) => {
         console.log(formData)
-    }
+    };
     return <div>
         <h1> LOGIN </h1>
         <ReduxLoginForm onSubmit={onSubmit}/>
