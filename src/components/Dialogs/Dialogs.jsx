@@ -36,7 +36,9 @@ const Dialogs = (props) => {
 const DialogsForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
         <div>
-            <Field placeholder='enter message' name={'newMessages'} component={'input'}/>
+            <Field placeholder='enter message'
+                   name={'newMessages'}
+                   component={'input'}/>
         </div>
         <div>
             <button>add mess</button>
