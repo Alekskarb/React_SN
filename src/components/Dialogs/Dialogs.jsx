@@ -11,15 +11,10 @@ const Dialogs = (props) => {
 
     let dialogsElements = state.myDia.map((d) => <DialogItem name={d.name} key={d.id} id={d.id}/>);
     let messagesElements = state.myMess.map((m) => <Message message={m.message} key={m.id}/>);
-    let newMessages = state.newMessText;
 
-    let onAddMess = () => {
-        props.addMess();
-    };
-
-    let onMessChange = (event) => {
-        let body = event.target.value;
-        props.updateMessText(body);
+    let onAddMess = (e) => {
+       // alert(e.newMessages);
+        props.addMess(e.newMessages);
     };
 
     if (!props.isAuth) return <Redirect to={'/login'}/>;
@@ -31,7 +26,7 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}>
                 <div>{messagesElements}</div>
-                <ReduxDialogsForm/>
+                <ReduxDialogsForm onSubmit={onAddMess}/>
 
             </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {addMessActionCreator, updateMessTextActionCreator} from "../../Redux/dialogReducer";
+import {addMessActionCreator} from "../../Redux/dialogReducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -13,12 +13,9 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        addMess: () => {
-            dispatch(addMessActionCreator())
+        addMess: (newMessages) => {
+            dispatch(addMessActionCreator(newMessages))
         },
-        updateMessText: (event) => {
-            dispatch(updateMessTextActionCreator(event))
-        }
     }
 };
 

@@ -28,7 +28,7 @@ const PostForm = (props)=> {
   return <div>
       <form onSubmit={props.handleSubmit}>
           <div>
-              <Field placeholder={'add post'} name={'newPostTexts'} component={'textarea'}/>
+              <Field placeholder={'add post'} name={'reduxPostForm'} component={'textarea'}/>
           </div>
       </form>
   </div>
