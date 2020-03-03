@@ -35,7 +35,7 @@ const Dialogs = (props) => {
     )
 };
 
-let maxLength50 =maxLengthTC(50);
+let maxLength20 =maxLengthTC(20);
 
 const DialogsForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
@@ -43,7 +43,7 @@ const DialogsForm = (props) => {
             <Field placeholder='your message'
                    name={'newMessages'}
                    component={TextArea}
-                   validate={[requiredFields, maxLength50]}
+                   validate={[requiredFields, maxLength20]}
             />
         </div>
         <div>
