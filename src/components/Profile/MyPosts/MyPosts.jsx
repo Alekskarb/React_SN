@@ -3,6 +3,7 @@ import s from './MyPosts.module.css';
 import Post from './Posts/Post';
 import {Field, reduxForm} from "redux-form";
 import {maxLengthTC, requiredFields} from "../../utilites/validators/validators";
+import {TextArea} from "../../common/FormsControl/FormsControl";
 
 const MyPosts = (props) => {
     let postsElements = props.myPost.map((p) => <Post message={p.message} key={p.id} likesCount={p.likesCount}/>);
@@ -27,7 +28,8 @@ const PostForm = (props)=> {
   return <div>
       <form onSubmit={props.handleSubmit}>
           <div>
-              <Field placeholder={'add post'} name={'postFormMess'} component={'textarea'}
+              <Field placeholder={'add post'} name={'postFormMess'}
+                     component={TextArea}
               validate={[requiredFields, maxLength10]}
               />
               <div>
