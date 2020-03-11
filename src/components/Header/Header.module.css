@@ -4,7 +4,7 @@ background-color: orangered;
 }
 
 .header img {
-    width: 200px;
+    max-width: 160px;
     }
 
 .loginBlock {
