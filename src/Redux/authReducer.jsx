@@ -42,8 +42,8 @@ export const login = (email, password, rememberMe) => (dispatch) => {
             if (response.data.resultCode === 0) {
                 dispatch(getAuthorize())
             } else {
-                let messages = response.data.messages > 0 ? response.data.messages[0] : 'some error'
-                dispatch(stopSubmit("login", {_error: messages}));
+                let message = response.data.messages.length > 0 ? response.data.messages[0] : 'some error'
+                dispatch(stopSubmit("login", {_error: message}));
             }
         });
 };
