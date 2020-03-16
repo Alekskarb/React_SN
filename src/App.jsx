@@ -7,31 +7,37 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./Login";
+import {connect} from "react-redux";
+import {getAuthorize} from "./Redux/authReducer";
 
-const App = () => {
+class App extends React.Component {
+    componentDidMount() {
+        this.props.getAuthorize();
+    }
+    render() {
 
-    return (
-        <div className="app-wrapper">
-            <HeaderContainer/>
-            <Navbar/>
-            <div className='app-wrapper-content'>
+        return (
+            <div className="app-wrapper">
+                <HeaderContainer/>
+                <Navbar/>
+                <div className='app-wrapper-content'>
 
-                <Route path='/dialogs'
-                       render={() => <DialogsContainer/>}/>
+                    <Route path='/dialogs'
+                           render={() => <DialogsContainer/>}/>
 
-                <Route path='/profile/:userId?'
-                       render={() => <ProfileContainer/>}/>
+                    <Route path='/profile/:userId?'
+                           render={() => <ProfileContainer/>}/>
 
-                <Route path='/users'
-                       render={() => <UsersContainer/>}/>
+                    <Route path='/users'
+                           render={() => <UsersContainer/>}/>
 
-                <Route path='/login'
-                       render={() => <Login/>}/>
+                    <Route path='/login'
+                           render={() => <Login/>}/>
+                </div>
             </div>
-        </div>
 
-    )
-};
+        )
+    }
+}
 
-export default App
-
+export default connect(null, {getAuthorize})(App);
