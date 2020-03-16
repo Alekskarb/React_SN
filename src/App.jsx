@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import {Route} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -9,10 +9,12 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./Login";
 import {connect} from "react-redux";
 import {getAuthorize} from "./Redux/authReducer";
+import {compose} from "redux";
+import {initializeApp} from "./Redux/appReducer";
 
 class App extends React.Component {
     componentDidMount() {
-        this.props.getAuthorize();
+        this.props.initializeApp();
     }
     render() {
 
@@ -40,4 +42,7 @@ class App extends React.Component {
     }
 }
 
-export default connect(null, {getAuthorize})(App);
+export default compose (
+    withRouter,
+    connect(null, {initializeApp}))
+(App);
