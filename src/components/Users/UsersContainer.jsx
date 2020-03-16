@@ -47,7 +47,7 @@ const mapStateToProps = (state) => {
         followingProgress: state.usersPage.followingProgress,
     }};
 
-let withUserRedirect = withAuthRedirect(UsersContainer);
+// let withUserRedirect = withAuthRedirect(UsersContainer);
 
 export default compose(
     connect(mapStateToProps, {
