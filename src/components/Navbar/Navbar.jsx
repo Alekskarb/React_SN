@@ -6,6 +6,7 @@ import {useSelector} from "react-redux";
 const Navbar = () => {
 
     const {userId} = useSelector(state => state.auth);
+
     return (
         <>
             <div className={s.nav}>
