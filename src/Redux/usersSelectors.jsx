@@ -1,6 +1,15 @@
-export const getSelectUsers = (state)=> {
-    return state.usersPage.users;
+import {createSelector} from "reselect";
+
+export const getUsers = (state)=> {
+    return state.usersPage.users
 };
+export const getSelectUsers = (state)=> {
+    return getUsers(state).filter(u=> true);
+};
+
+export const getUsersSuperSelect = createSelector(getUsers, (users)=>{
+    return users.filter(u=> true);
+});
 export const getPageSize = (state)=> {
     return state.usersPage.pageSize;
 };
@@ -15,4 +24,9 @@ export const getFetching = (state)=> {
 };
 export const getFollowingProgress = (state)=> {
     return state.usersPage.followingProgress;
+};
+export const countSomethingDifficult = (state)=> {
+    //for... math... big arrays
+    let count = 22;
+    return count;
 };
