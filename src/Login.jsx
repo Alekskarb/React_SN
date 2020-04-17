@@ -13,12 +13,14 @@ const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field placeholder={'email'} validate={[requiredFields]}
-                       name={'email'} component={InputArea}/>
+                <Field  validate={[requiredFields]} type={'email'}
+                       name={'email'} component={InputArea} value='22222'/>
+                       Please, enter: free@samuraijs.com
             </div>
             <div>
-                <Field placeholder={'Password'} validate={[requiredFields]} type={'password'}
-                       name={'password'} component={InputArea}/>
+                <Field  validate={[requiredFields]} type={'password'} value={'ddddd'}
+                       name={'password'} component={InputArea} />
+                Please, enter:  free
             </div>
             <div>
                 <Field type={'checkbox'} validate={[requiredFields]}
