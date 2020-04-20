@@ -17,7 +17,7 @@ import {
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-       this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
@@ -28,18 +28,19 @@ class UsersContainer extends React.Component {
 
         return <>
             {this.props.isFetching ? <Preloader/> : null}
-        <Users totalUsersCount={this.props.totalUsersCount}
-                      pageSize={this.props.pageSize}
-                      currentPage={this.props.currentPage}
-                      onPageChanged={this.onPageChanged}
-                      users={this.props.users}
-                      unfollow={this.props.unfollow}
-                      follow={this.props.follow}
-               setFollowingProgress={this.props.setFollowingProgress}
-               followingProgress={this.props.followingProgress}
-        />
+            <Users totalUsersCount={this.props.totalUsersCount}
+                   pageSize={this.props.pageSize}
+                   currentPage={this.props.currentPage}
+                   onPageChanged={this.onPageChanged}
+                   users={this.props.users}
+                   unfollow={this.props.unfollow}
+                   follow={this.props.follow}
+                   setFollowingProgress={this.props.setFollowingProgress}
+                   followingProgress={this.props.followingProgress}
+            />
         </>
-        }}
+    }
+}
 
 const mapStateToProps = (state) => {
     return {
@@ -50,11 +51,13 @@ const mapStateToProps = (state) => {
         currentPage: getCurrentPage(state),
         isFetching: getFetching(state),
         followingProgress: getFollowingProgress(state),
-    }};
+    }
+};
 
 export default compose(
     connect(mapStateToProps, {
-        follow, unfollow, setCurrentPage, setFollowingProgress, getUsers}),
+        follow, unfollow, setCurrentPage, setFollowingProgress, getUsers
+    }),
     withAuthRedirect,)(UsersContainer)
 
 
