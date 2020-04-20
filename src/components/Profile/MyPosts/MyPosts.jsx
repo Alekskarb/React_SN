@@ -23,13 +23,16 @@ const PostForm = (props) => {
 };
 const ReduxPostForm = reduxForm({form: 'reduxPostForm'})(PostForm);
 
-const MyPosts = (props) => {
-    //checks extra renders
-//     componentDidMount() {
-//         setTimeout(() => {
-//             this.setState({a:12})
-//         }, 1000);
-//     }
+const MyPosts = React.memo(props => {
+
+    // checks extra renders
+
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({a:12})
+    //     }, 1000);
+    // }
+
 //use 1 PureComponent instead of React.Component // class Component
 //use 2 shouldComponentUpdate = React.Component // class Component
 //use 2 React.Memo with functional Component //
@@ -55,6 +58,7 @@ const MyPosts = (props) => {
         </div>
     </div>
 }
+);
 
 export default MyPosts;
 
