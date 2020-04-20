@@ -6,6 +6,8 @@ import {maxLengthTC, requiredFields} from "../../utilites/validators/validators"
 import {TextArea} from "../../common/FormsControl/FormsControl";
 
 const MyPosts = (props) => {
+    window.props = [];
+
     let postsElements = props.myPost.map((p) => <Post message={p.message} key={p.id} likesCount={p.likesCount}/>);
     let addPost = (e) => {
         props.onAddPost(e.postFormMess);
@@ -23,7 +25,7 @@ const MyPosts = (props) => {
     </div>
 };
 const maxLength10 = maxLengthTC(10);
-
+console.log('RENDER');
 const PostForm = (props)=> {
   return <div>
       <form onSubmit={props.handleSubmit}>
