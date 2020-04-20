@@ -1,18 +1,27 @@
 .header {
 grid-area: h;
-background-color: orangered;
+background-color: lightgoldenrodyellow;
+    display: flex;
+    align-items: center;
+
 }
 
-.header img {
-    max-width: 160px;
+ img {
+    width: 100px;
+    /*float: left;*/
+    display: flex;
+    align-items: start;
+     justify-content: start ;
     }
+img:hover {filter: contrast(150%)}
 
 .loginBlock {
-    float: right;
-
+    justify-content: end ;
+    align-items: end;
+    /*padding: -20px;*/
     }
 .loginBlock a {
-    color: white;
+    color: orangered;
 
     }
 

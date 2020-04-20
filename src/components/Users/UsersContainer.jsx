@@ -1,10 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {
-    follow, setFollowingProgress,
-    setCurrentPage,
-    unfollow, getUsers
-} from "../../Redux/usersReducer";
+import {follow, getUsers, setCurrentPage, setFollowingProgress, unfollow} from "../../Redux/usersReducer";
 import Users from "./Users";
 import Preloader from "../common/preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
@@ -14,8 +10,8 @@ import {
     getFetching,
     getFollowingProgress,
     getPageSize,
-    getSelectUsers,
-    getTotalUsersCount, getUsersSuperSelect
+    getTotalUsersCount,
+    getUsersSuperSelect
 } from "../../Redux/usersSelectors";
 
 class UsersContainer extends React.Component {
@@ -45,15 +41,6 @@ class UsersContainer extends React.Component {
         </>
         }}
 
-// const mapStateToProps = (state) => {
-//     return {
-//         users: state.usersPage.users,
-//         pageSize: state.usersPage.pageSize,
-//         totalUsersCount: state.usersPage.totalUsersCount,
-//         currentPage: state.usersPage.currentPage,
-//         isFetching: state.usersPage.isFetching,
-//         followingProgress: state.usersPage.followingProgress,
-//     }};
 const mapStateToProps = (state) => {
     return {
         // users: getSelectUsers(state),

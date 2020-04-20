@@ -18,7 +18,7 @@ const LoginForm = (props) => {
                        Please, enter: free@samuraijs.com
             </div>
             <div>
-                <Field  validate={[requiredFields]} type={'password'} value={'ddddd'}
+                 <Field  validate={[requiredFields]} type={'password'} value={'ddddd'}
                        name={'password'} component={InputArea} />
                 Please, enter:  free
             </div>

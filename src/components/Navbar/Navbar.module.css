@@ -1,8 +1,9 @@
 .nav {
     grid-area: n;
-    background-color: plum;
+    background-color: moccasin;
     padding: 20px;
     max-width: 160px;
+    /*display: flex;*/
 }
 
 .item {
