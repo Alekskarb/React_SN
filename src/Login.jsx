@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import {buildField, InputArea} from "./components/common/FormsControl/FormsControl";
 import {requiredFields} from "./components/utilites/validators/validators";
 import {connect} from "react-redux";
@@ -31,7 +31,7 @@ const ReduxLoginForm = reduxForm({form: 'login'})(LoginForm);
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe, )
+        props.login(formData.email, formData.password, formData.rememberMe,)
     };
 
     if (props.isAuth) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./Paginator.module.css";
+import s from "./Paginator.module.css";
 
 let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, ...props}) => {
 
@@ -12,7 +12,7 @@ let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, ...prop
     return <div>
             {pages.map(page => {
                 return (
-                    <span key={page.index} className={currentPage === page && styles.boldPage}
+                    <span key={page.index} className={currentPage === page && s.boldPage}
                           onClick={() => {
                               onPageChanged(page)
                           }}>{page}
@@ -21,6 +21,5 @@ let Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, ...prop
             })}
         </div>
 };
-
 
 export default Paginator;
