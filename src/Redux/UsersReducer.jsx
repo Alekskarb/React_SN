@@ -19,6 +19,8 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'FAKE':
+            return {...state, fake: state.fake + 1};
         case FOLLOW:
             return {
                 ...state,
@@ -71,26 +73,23 @@ export const setFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetchin
 export const setFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId});
 
 export const getUsers = (page, pageSize) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(setFetching(true));
         dispatch(setCurrentPage(page));
-        usersAPI.getUsers(page, pageSize).then(data => {
-            dispatch(setFetching(false));
-            dispatch(setUsers(data.items));
-            dispatch(setTotalUsersCount(data.totalCount));
-        });
+        let data = await usersAPI.getUsers(page, pageSize);
+        dispatch(setFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setTotalUsersCount(data.totalCount));
     }
 };
 export const follow = (userId) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(setFollowingProgress(true, userId));
-        usersAPI.follow(userId)
-            .then(response => {
-                if (response.resultCode === 0) {
-                    dispatch(followSuccess(userId))
-                }
-                dispatch(setFollowingProgress(false, userId));
-            })
+        let response = await usersAPI.follow(userId)
+        if (response.resultCode === 0) {
+            dispatch(followSuccess(userId))
+        }
+        dispatch(setFollowingProgress(false, userId));
     }
 };
 export const unfollow = (userId) => {
