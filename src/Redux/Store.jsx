@@ -33,7 +33,7 @@ let store = {
             speaks: [
                 {id: 1, speaks: 'Very good'},
                 {id: 2, speaks: 'Good Idea'},
-                {id: 3, speaks: 'some Bitch'},
+                {id: 3, speaks: 'Girls'},
                 {id: 4, speaks: 'Real guy'}]
         }
     },

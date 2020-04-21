@@ -7,6 +7,7 @@ import usersReducer from "./usersReducer";
 import thunk from "redux-thunk";
 import { reducer as formReducer } from 'redux-form'
 import appReducer from "./appReducer";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 let reducers = combineReducers({
     profilesPage: profileReducer,
@@ -18,7 +19,8 @@ let reducers = combineReducers({
     app: appReducer,
 });
 
-let store = createStore(reducers, applyMiddleware(thunk));
+let store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk))
+);
 
 window.store = store;
 
