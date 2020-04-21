@@ -6,14 +6,14 @@ import store from './Redux/redux-store';
 import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
-setInterval(()=> {
+setInterval(() => {
     store.dispatch({type: 'FAKE'})
 }, 3000);
 
 
 ReactDOM.render(
-        <BrowserRouter>
-            <Provider store={store}>
-            <App />
+    <BrowserRouter>
+        <Provider store={store}>
+            <App/>
         </Provider>
-        </BrowserRouter>, document.getElementById('root'));
+    </BrowserRouter>, document.getElementById('root'));

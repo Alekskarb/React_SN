@@ -23,7 +23,7 @@ const PostForm = (props) => {
 };
 const ReduxPostForm = reduxForm({form: 'reduxPostForm'})(PostForm);
 
-const  MyPosts = React.memo(props=> {
+const MyPosts = React.memo(props => {
     // checks extra renders
 
     // componentDidMount() {
@@ -57,7 +57,7 @@ const  MyPosts = React.memo(props=> {
             {postsElements}
         </div>
     </div>
-} )
+})
 
 
 export default MyPosts;
