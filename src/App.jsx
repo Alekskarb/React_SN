@@ -9,6 +9,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./Redux/appReducer";
 import Preloader from "./components/common/preloader";
+import {withLazySuspense} from "./hoc/withLazySuspense";
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
@@ -29,10 +30,7 @@ class App extends React.Component {
                 <div className='app-wrapper-content'>
 
                     <Route path='/dialogs'
-                           render={() => {return <React.Suspense fallback={<Preloader/>}>
-                               <DialogsContainer/>
-                           </React.Suspense>}
-                           }/>
+                           render={withLazySuspense(DialogsContainer)}/>
 
                     <Route path='/profile/:userId?'
                            render={() => {return <React.Suspense fallback={<Preloader/>}>
