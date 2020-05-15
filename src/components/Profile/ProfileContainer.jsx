@@ -7,7 +7,7 @@ import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount() {
+    reLoadProfileAvatar = () => {
         let userId = this.props.match.params.userId;
         if (!userId) {
             userId = this.props.authUserId;
@@ -17,6 +17,16 @@ class ProfileContainer extends React.Component {
         }
         this.props.getUserProfile(userId);
         this.props.getUserStatus(userId)
+    };
+
+    componentDidMount() {
+        this.reLoadProfileAvatar()
+    };
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            this.reLoadProfileAvatar()
+        }
     }
 
     render() {
