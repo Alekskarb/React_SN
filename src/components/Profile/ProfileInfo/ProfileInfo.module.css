@@ -2,6 +2,6 @@
     padding: 10px;
 }
 
-.content img {
-    width: 600px;
+.content {
+    min-width: 400px;
 }

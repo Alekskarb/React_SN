@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './users.module.css'
-import userPict from '../../assets/images/images.png'
+import userPict from '../../assets/images/samurai.jpg'
 import {NavLink} from "react-router-dom";
 
 let User = ({user, followingProgress, follow, unfollow, ...props}) => {
