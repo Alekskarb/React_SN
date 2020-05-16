@@ -1,32 +1,34 @@
 {
   "files": {
     "main.css": "/React_SN/static/css/main.1237c413.chunk.css",
-    "main.js": "/React_SN/static/js/main.56ec4036.chunk.js",
-    "main.js.map": "/React_SN/static/js/main.56ec4036.chunk.js.map",
-    "runtime-main.js": "/React_SN/static/js/runtime-main.aad0c7be.js",
-    "runtime-main.js.map": "/React_SN/static/js/runtime-main.aad0c7be.js.map",
-    "static/js/2.734adfc2.chunk.js": "/React_SN/static/js/2.734adfc2.chunk.js",
-    "static/js/2.734adfc2.chunk.js.map": "/React_SN/static/js/2.734adfc2.chunk.js.map",
-    "static/css/3.d4f343e2.chunk.css": "/React_SN/static/css/3.d4f343e2.chunk.css",
-    "static/js/3.e8838404.chunk.js": "/React_SN/static/js/3.e8838404.chunk.js",
-    "static/js/3.e8838404.chunk.js.map": "/React_SN/static/js/3.e8838404.chunk.js.map",
+    "main.js": "/React_SN/static/js/main.45c8df4e.chunk.js",
+    "main.js.map": "/React_SN/static/js/main.45c8df4e.chunk.js.map",
+    "runtime-main.js": "/React_SN/static/js/runtime-main.d20b223b.js",
+    "runtime-main.js.map": "/React_SN/static/js/runtime-main.d20b223b.js.map",
+    "static/js/2.ce57f601.chunk.js": "/React_SN/static/js/2.ce57f601.chunk.js",
+    "static/js/2.ce57f601.chunk.js.map": "/React_SN/static/js/2.ce57f601.chunk.js.map",
+    "static/css/3.60d0f834.chunk.css": "/React_SN/static/css/3.60d0f834.chunk.css",
+    "static/js/3.d3ab5806.chunk.js": "/React_SN/static/js/3.d3ab5806.chunk.js",
+    "static/js/3.d3ab5806.chunk.js.map": "/React_SN/static/js/3.d3ab5806.chunk.js.map",
     "static/css/4.1d9263ff.chunk.css": "/React_SN/static/css/4.1d9263ff.chunk.css",
-    "static/js/4.25a3c3c6.chunk.js": "/React_SN/static/js/4.25a3c3c6.chunk.js",
-    "static/js/4.25a3c3c6.chunk.js.map": "/React_SN/static/js/4.25a3c3c6.chunk.js.map",
+    "static/js/4.7d509ab9.chunk.js": "/React_SN/static/js/4.7d509ab9.chunk.js",
+    "static/js/4.7d509ab9.chunk.js.map": "/React_SN/static/js/4.7d509ab9.chunk.js.map",
     "index.html": "/React_SN/index.html",
-    "precache-manifest.082fad46d4176aba73fa8988fbabb5cf.js": "/React_SN/precache-manifest.082fad46d4176aba73fa8988fbabb5cf.js",
+    "precache-manifest.c1ec999e43fe39833644e4af893b76c7.js": "/React_SN/precache-manifest.c1ec999e43fe39833644e4af893b76c7.js",
     "service-worker.js": "/React_SN/service-worker.js",
-    "static/css/3.d4f343e2.chunk.css.map": "/React_SN/static/css/3.d4f343e2.chunk.css.map",
+    "static/css/3.60d0f834.chunk.css.map": "/React_SN/static/css/3.60d0f834.chunk.css.map",
     "static/css/4.1d9263ff.chunk.css.map": "/React_SN/static/css/4.1d9263ff.chunk.css.map",
     "static/css/main.1237c413.chunk.css.map": "/React_SN/static/css/main.1237c413.chunk.css.map",
-    "static/js/2.734adfc2.chunk.js.LICENSE": "/React_SN/static/js/2.734adfc2.chunk.js.LICENSE",
-    "static/media/images.png": "/React_SN/static/media/images.06ece216.png",
-    "static/media/load.gif": "/React_SN/static/media/load.26ef8bb4.gif"
+    "static/js/2.ce57f601.chunk.js.LICENSE": "/React_SN/static/js/2.ce57f601.chunk.js.LICENSE",
+    "static/media/background.jpg": "/React_SN/static/media/background.09b67605.jpg",
+    "static/media/load.gif": "/React_SN/static/media/load.26ef8bb4.gif",
+    "static/media/persons.png": "/React_SN/static/media/persons.6441fd5d.png",
+    "static/media/samurai.jpg": "/React_SN/static/media/samurai.a5d3422b.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.aad0c7be.js",
-    "static/js/2.734adfc2.chunk.js",
+    "static/js/runtime-main.d20b223b.js",
+    "static/js/2.ce57f601.chunk.js",
     "static/css/main.1237c413.chunk.css",
-    "static/js/main.56ec4036.chunk.js"
+    "static/js/main.45c8df4e.chunk.js"
   ]
 }
