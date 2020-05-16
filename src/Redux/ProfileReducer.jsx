@@ -65,10 +65,10 @@ export const updateUserStatus = (status) => async (dispatch) => {
     }
 };
 export const saveAvatar = (file) => async (dispatch) => {
-    debugger
     let response = await profileAPI.savePhoto(file);
     if (response.data.resultCode === 0) {
-    dispatch(updatePhotoSuccess(response.data.data.photos))}
+        dispatch(updatePhotoSuccess(response.data.data.photos))
+    }
 };
 
 export default profileReducer;

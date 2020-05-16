@@ -10,7 +10,6 @@ const ProfileInfo = ({profile, status, updateUserStatus, isOwner, saveAvatar}) =
     }
 
    const onFileLoad = (e)=> {
-        debugger
        if (e.target.files.length) {
            saveAvatar(e.target.files[0])
        }
