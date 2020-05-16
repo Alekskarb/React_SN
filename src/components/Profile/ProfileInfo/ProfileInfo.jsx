@@ -4,7 +4,7 @@ import Preloader from "../../common/preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPict from '../../../assets/images/background.jpg'
 
-const ProfileInfo = ({profile, status, updateUserStatus}) => {
+const ProfileInfo = ({profile, status, updateUserStatus, isOwner}) => {
     if (!profile) {
         return <Preloader/>
     }
@@ -13,6 +13,7 @@ const ProfileInfo = ({profile, status, updateUserStatus}) => {
         <div>
             <div className={s.descriptionBlock}>
                 <img src={profile.photos.large || userPict} alt="no_image" className={s.content}/>
+                {isOwner && <input type="file"/> }
                 <ProfileStatusWithHooks status={status} updateUserStatus={updateUserStatus}
                 />
             </div>
