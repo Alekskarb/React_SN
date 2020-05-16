@@ -32,7 +32,7 @@ class App extends React.Component {
                     <Route path='/dialogs'
                            render={withLazySuspense(DialogsContainer)}/>
 
-                    <Route path='/profile/:userId'
+                    <Route path='/profile/:userId?'
                            render={() => {return <React.Suspense fallback={<Preloader/>}>
                            <ProfileContainer/>
                                </React.Suspense>}
