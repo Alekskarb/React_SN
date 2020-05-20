@@ -29,6 +29,7 @@ const ProfileInfo = ({profile, status, updateUserStatus, isOwner, saveAvatar, sa
                 <img src={profile.photos.large || userPict} alt="no_image" className={s.content}/>
                 {isOwner && <input type={"file"} onChange={onFileLoad}/>}
                 {editMode ? <ProfileDataForm profile={profile}
+                                             initialValues={profile}
                                              onSubmit={onSubmit}
                                              saveProfile={saveProfile}/>
                     : <ProfileData profile={profile}

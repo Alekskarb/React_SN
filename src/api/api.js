@@ -39,6 +39,11 @@ export const profileAPI = {
         let dataObject = new FormData();
         dataObject.append('image', filePhoto);
         return instance.put('profile/photo', dataObject, {headers: {'Content-Type': 'multipart/form-data'}})
+    },
+    saveProfile(profile) {
+
+
+        return instance.put('profile', profile)
     }
 };
 
