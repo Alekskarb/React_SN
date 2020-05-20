@@ -5,13 +5,17 @@ import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPict from '../../../assets/images/background.jpg'
 import ProfileDataForm from "./ProfileDataForm";
 
-const ProfileInfo = ({profile, status, updateUserStatus, isOwner, saveAvatar}) => {
+const ProfileInfo = ({profile, status, updateUserStatus, isOwner, saveAvatar, saveProfile}) => {
 
     let [editMode, setEditMode] = useState(false);
 
     if (!profile) {
         return <Preloader/>
     }
+
+    const onSubmit =(formData)=> {
+       saveProfile(formData)
+    };
 
     const onFileLoad = (e) => {
         if (e.target.files.length) {
@@ -24,7 +28,9 @@ const ProfileInfo = ({profile, status, updateUserStatus, isOwner, saveAvatar}) =
             <div className={s.descriptionBlock}>
                 <img src={profile.photos.large || userPict} alt="no_image" className={s.content}/>
                 {isOwner && <input type={"file"} onChange={onFileLoad}/>}
-                {editMode ? <ProfileDataForm profile={profile}/>
+                {editMode ? <ProfileDataForm profile={profile}
+                                             onSubmit={onSubmit}
+                                             saveProfile={saveProfile}/>
                     : <ProfileData profile={profile}
                                    editMode={() => {
                                        setEditMode(true)

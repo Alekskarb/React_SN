@@ -10,6 +10,7 @@ const Profile = (props) => {
                          saveAvatar={props.saveAvatar}
                          profile={props.profile}
                          status={props.status}
+                         saveProfile={props.saveProfile}
                          updateUserStatus={props.updateUserStatus}/>
             <PostContainer
             />
