@@ -70,11 +70,11 @@ export const saveAvatar = (file) => async (dispatch) => {
         dispatch(updatePhotoSuccess(response.data.data.photos))
     }
 };
-export const saveProfile = (profile) => async (dispatch) => {
+export const saveProfile = (profile) => async (dispatch, getState) => {
+   let userID = getState().auth.userId;
     let response = await profileAPI.saveProfile(profile);
-    debugger
     if (response.data.resultCode === 0) {
-        // dispatch(saveProfileSuccess(response.data.profile))
+        dispatch(getUserProfile(userID))
     }
 };
 

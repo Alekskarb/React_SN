@@ -36,8 +36,8 @@ export const profileAPI = {
         return instance.put('profile/status', {status: status})
     },
     savePhoto(filePhoto) {
-        let dataObject = new FormData();
-        dataObject.append('image', filePhoto);
+        let dataObject = new FormData(); // create new object
+        dataObject.append('image', filePhoto); // paste new file (avatar picture)
         return instance.put('profile/photo', dataObject, {headers: {'Content-Type': 'multipart/form-data'}})
     },
     saveProfile(profile) {
