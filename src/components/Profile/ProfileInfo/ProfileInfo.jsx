@@ -13,9 +13,11 @@ const ProfileInfo = ({profile, status, updateUserStatus, isOwner, saveAvatar, sa
         return <Preloader/>
     }
 
-    const onSubmit =(formData)=> {
-       saveProfile(formData);
-        // setEditMode(false);
+    const onSubmit = async (formData)=> {
+       saveProfile(formData).then(
+           ()=>{ setEditMode(false)}
+       );
+
     };
 
     const onFileLoad = (e) => {
