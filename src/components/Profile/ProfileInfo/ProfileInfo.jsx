@@ -15,7 +15,7 @@ const ProfileInfo = ({profile, status, updateUserStatus, isOwner, saveAvatar, sa
 
     const onSubmit =(formData)=> {
        saveProfile(formData);
-        setEditMode(false);
+        // setEditMode(false);
     };
 
     const onFileLoad = (e) => {

@@ -1,11 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {buildField, InputArea, TextArea} from "../../common/FormsControl/FormsControl";
-import {handleSubmit, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import s from './ProfileInfo.module.css';
+import style from "../../common/FormsControl/FormsControl.module.css";
 
-const ProfileDataForm = ({handleSubmit, profile}) => {
+const ProfileDataForm = ({handleSubmit, profile, error}) => {
     return <form onSubmit={handleSubmit}>
         <div><button> save profile </button></div>
+        {error && <div className={style.formSumError}>
+            {error}
+        </div>
+        }
         <div>
             <b> Full Name: </b> {buildField('Full Name', 'fullName', [], InputArea)}
         </div>
@@ -22,7 +27,7 @@ const ProfileDataForm = ({handleSubmit, profile}) => {
         {buildField('About Me', 'aboutMe', [], TextArea)}
         <div>
             <b> CONTACTS: </b> {Object.keys(profile.contacts).map(key => {
-            return <div className={s.contacts}>
+            return <div key={key} className={s.contacts}>
                 <b>{key}: {buildField(key, 'contacts.' + key, [], InputArea)}
                 </b>
                 </div>
@@ -32,6 +37,6 @@ const ProfileDataForm = ({handleSubmit, profile}) => {
     </form>
 };
 
-const ProfileReduxDataForm = reduxForm({form: 'edit profile'})(ProfileDataForm);
+const ProfileReduxDataForm = reduxForm({form: 'edit-profile'})(ProfileDataForm);
 
 export default ProfileReduxDataForm;
