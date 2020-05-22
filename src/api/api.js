@@ -41,8 +41,6 @@ export const profileAPI = {
         return instance.put('profile/photo', dataObject, {headers: {'Content-Type': 'multipart/form-data'}})
     },
     saveProfile(profile) {
-
-
         return instance.put('profile', profile)
     }
 };
@@ -51,9 +49,9 @@ export const authAPI = {
     authorize() {
         return instance.get('auth/me')
     },
-    login(email, password, rememberMe=false) {
+    login(email, password, rememberMe= false, captcha = null) {
         return instance.post('auth/login',
-            {email, password, rememberMe})
+            {email, password, rememberMe, captcha})
     },
     logout() {
         return instance.delete('auth/login')

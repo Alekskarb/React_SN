@@ -9,13 +9,16 @@ import {Redirect} from "react-router-dom";
 import style from "./components/common/FormsControl/FormsControl.module.css";
 
 
-const LoginForm = ({error, handleSubmit}) => {
+const LoginForm = ({error, handleSubmit, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
 
             {buildField('e-mail', 'email', [requiredFields], InputArea, {type: 'email'}, 'free@samuraijs.com')}
             {buildField('Password', 'password', [requiredFields], InputArea, {type: 'password'}, 'free')}
-            {buildField(null, 'rememberMe', [requiredFields], InputArea, {type: 'checkbox'}, 'rememberMe')}
+            {buildField(null, 'rememberMe', [], InputArea, {type: 'checkbox'}, 'rememberMe')}
+
+            {captchaUrl && <img src={captchaUrl} alt={'valid auth'}/>}
+            {captchaUrl &&  buildField('Symbols from Image', 'captcha', [requiredFields], InputArea, {})}
 
             {error && <div className={style.formSumError}>
                 {error}
@@ -31,7 +34,7 @@ const ReduxLoginForm = reduxForm({form: 'login'})(LoginForm);
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe,)
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captchaUrl)
     };
 
     if (props.isAuth) {
@@ -40,12 +43,15 @@ const Login = (props) => {
 
     return <div>
         <h2> LOGIN </h2>
-        <ReduxLoginForm onSubmit={onSubmit}/>
+        <ReduxLoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
     </div>
 };
 
 let mapStateToProps = (state) => {
-    return {isAuth: state.auth.isAuth}
+    return {
+        isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.captchaUrl
+    }
 };
 
 export default connect(mapStateToProps, {login})(Login)

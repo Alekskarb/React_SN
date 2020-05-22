@@ -1,4 +1,4 @@
-import {authAPI} from "../api/api";
+import {authAPI, securityAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
 
 let SET_USER_DATA = 'Redux/authReducer/SET_USER_DATA';
@@ -9,12 +9,13 @@ let initialState = {
     email: null,
     login: null,
     isAuth: false,
-    captchaURL: null // if null, then captcha not required
+    captchaUrl: null // if null, then captcha not required
 };
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_DATA:
+        case GET_CAPTCHA_URL_SUCCESS:
             return {
                 ...state,
                 ...action.payload,
@@ -27,8 +28,8 @@ const authReducer = (state = initialState, action) => {
 export const setAuthUserData = (userId, email, login, isAuth) =>
     ({type: SET_USER_DATA, payload: {userId, email, login, isAuth}});
 
-export const getCaptchaUrlSuccess = (captchaURL) =>
-    ({type: GET_CAPTCHA_URL_SUCCESS, payload: {captchaURL}});
+export const getCaptchaUrlSuccess = (captchaUrl) =>
+    ({type: GET_CAPTCHA_URL_SUCCESS, payload: {captchaUrl}});
 
 export const getAuthorize = () => async (dispatch) => {
     let response = await authAPI.authorize();
@@ -39,8 +40,8 @@ export const getAuthorize = () => async (dispatch) => {
     }
 };
 
-export const login = (email, password, rememberMe) => async (dispatch) => {
-    let response = await authAPI.login(email, password, rememberMe);
+export const login = (email, password, rememberMe, captcha) => async (dispatch) => {
+    let response = await authAPI.login(email, password, rememberMe, captcha);
     if (response.data.resultCode === 0) {
         //success, get auth data
         dispatch(getAuthorize())
